@@ -17,14 +17,14 @@ include 'header.php';
                         
                         <div class="px-3">
                             <div class="media">
-                                <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
+                                <a href="index.php" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
                                 <div class="media-body ml-3 align-self-center">                                                                                                                       
                                     <h4 class="mt-0 mb-1">Free Register for Frogetor</h4>
                                     <p class="text-muted mb-0">Get your free Frogetor account now.</p>
                                 </div>
                             </div>                            
                             
-                            <form class="form-horizontal my-4" action="index.html">
+                            <form class="form-horizontal my-4" action="index.php">
     
                                 <div class="form-group">
                                     <label for="username">Username</label>

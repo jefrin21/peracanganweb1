@@ -52,7 +52,7 @@ include 'header.php';
                         <div class="m-3 text-center bg-light p-3 text-primary">
                             <h5 class="">Not you ? return</h5>
                             <p class="font-13">Sign in Frogetor Now</p>
-                            <a href="#" class="btn btn-primary btn-round waves-effect waves-light">Sign In</a>                
+                            <a href="auth-login.php" class="btn btn-primary btn-round waves-effect waves-light">Sign In</a>                
                         </div>                        
                     </div>
                 </div>
