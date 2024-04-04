@@ -13,7 +13,7 @@ include 'header.php';
 
         <!-- Top Bar Start -->
         <?php
-        include 'navbarr.php';
+        include 'navbar.php';
         ?>
                 <!-- Page-Title -->
                 <div class="row">
