@@ -18,14 +18,14 @@ include 'header.php';
                         
                         <div class="px-3">
                             <div class="media">
-                                <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
+                                <a href="index.php" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
                                 <div class="media-body ml-3 align-self-center">                                                                                                                       
                                     <h4 class="mt-0 mb-1">Login on Frogetor</h4>
                                     <p class="text-muted mb-0">Sign in to continue to Frogetor.</p>
                                 </div>
                             </div>                            
                             
-                            <form class="form-horizontal my-4" action="index.html">
+                            <form class="form-horizontal my-4" action="index.php">
     
                                 <div class="form-group">
                                     <label for="username">Username</label>
@@ -55,7 +55,7 @@ include 'header.php';
                                         </div>
                                     </div>
                                     <div class="col-sm-6 text-right">
-                                        <a href="pages-recoverpw-2.html" class="text-muted font-13"><i class="mdi mdi-lock"></i> Forgot your password?</a>                                    
+                                        <a href="auth-recoverpw.php" class="text-muted font-13"><i class="mdi mdi-lock"></i> Forgot your password?</a>                                    
                                     </div>
                                 </div>
     
