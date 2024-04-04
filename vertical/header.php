@@ -27,6 +27,10 @@
          <!--calendar css-->
          <link href="assets/plugins/fullcalendar/css/fullcalendar.min.css" rel="stylesheet" />
 
+         <link href="assets/plugins/summernote/summernote-bs4.css" rel="stylesheet" />
+        <link href="assets/plugins/custombox/custombox.min.css" rel="stylesheet" type="text/css">
+
+
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
