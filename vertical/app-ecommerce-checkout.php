@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'koneksi.php';
 ?>
 
@@ -50,10 +51,12 @@ include 'header.php';
                 <!-- end left-sidenav-->
 
                 <!-- Page Content-->
+
+                <!-- barang yang mau dibeli -->
                 <div class="page-content">
                     <div class="container-fluid"> 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-2">Order Summary</h4>
@@ -67,69 +70,55 @@ include 'header.php';
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/products/img-5.png" alt="" height="52">
-                                                            <p class="d-inline-block align-middle mb-0 product-name">Reebok Shoes</p> 
-                                                        </td>
-                                                        <td>
-                                                           2
-                                                        </td>
-                                                       <td>$198</td>                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/products/3.jpg" alt="" height="52">
-                                                            <p class="d-inline-block align-middle mb-0 product-name">Brown Morden Chair</p> 
-                                                        </td>
-                                                        <td>
-                                                            2
-                                                        </td>
-                                                        <td>$150</td>                                                       
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/products/img-4.png" alt="" height="52">
-                                                            <p class="d-inline-block align-middle mb-0 product-name">Lava Purse</p> 
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>$49</td>                                                       
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/products/2.jpg" alt="" height="52">
-                                                            <p class="d-inline-block align-middle mb-0 product-name">Important Chair</p>
-                                                        </td>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>$99</td>
-                                                    </tr>  
-                                                    <tr>
-                                                        <td>
-                                                            <h6>Total :</h6>
-                                                        </td>
-                                                        <td></td>
-                                                        <td class="font-weight-bold">$496</td>
-                                                    </tr>                                                    
+
+                                                <?php
+                                                $totalPrice =0;
+                                                ?>
+                                                <?php
+                                                        if (!empty($_SESSION['shop'])) {
+                                                            foreach ($_SESSION['shop'] as $id => $product) {
+
+                                                            echo "<tr>";
+                                                            echo "<td>
+                                                                    <img src='assets/images/products/img-5.png' alt='' height='52'>
+                                                                    <p class='d-inline-block align-middle mb-0 product-name'>".$product['name']."</p> 
+                                                                </td>";
+                                                            echo"<td>
+                                                                   ".$product['jumlah']."
+                                                                </td>";
+                                                            echo"<td>
+                                                                    ".($product['price']* $product['jumlah'])."
+                                                                </td>";                                                                   
+                                                            echo "<tr>";
+                                                            }
+                                                        }
+                                                        // perhitungan total keseluruhan pembelian
+                                                        if (!empty($_SESSION['shop'])) {
+                                                            foreach ($_SESSION['shop'] as $product) {
+                                                                $totalPrice += $product['price'] * $product['jumlah'];     
+                                                        }
+                                                            echo "<td>";
+                                                            echo        "<h6>Total :</h6>";
+                                                            echo "</td>";
+                                                            echo "<td></td>";
+                                                            echo "<td class='font-weight-bold'>".$totalPrice."</td>";
+                                                            echo "</tr>";
+                                                    }        
+                                                ?>  
                                                 </tbody>
                                             </table>
                                         </div>
+
+                                        <!-- pembayaran -->
                                         <div class="total-payment">
                                             <table class="table mb-0">
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="payment-title">Subtotal</td>
-                                                        <td>$496.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="payment-title">Shipping</td>
-                                                        <td>
-                                                            Shipping Charge : $5.00
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                    echo"<tr>";
+                                                    echo"<td class='payment-title'>Subtotal</td>";
+                                                    echo"<td>".$totalPrice."</td>";
+                                                    echo"</tr>";
+                                                    ?>
                                                     <tr>
                                                         <td class="payment-title">Promo Code</td>
                                                         <td>-$10.00</td>
@@ -144,102 +133,8 @@ include 'header.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mt-0 mb-2">Delivery Address</h4>
-                                        <form class="mb-0">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>First Name <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" id="firstname" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Last Name <small class="text-danger font-13">*</small></label>
-                                                        <input type="email" class="form-control" id="lastname" required="">
-                                                    </div>
-                                                </div>                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">                            
-                                                    <div class="form-group">
-                                                        <label>Delivery Address <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">                            
-                                                    <div class="form-group">
-                                                        <label>Address <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>City <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" id="city" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="col-form-label pt-0">State <small class="text-danger font-13">*</small></label>
-                                                        <select class="form-control">
-                                                            <option>Select</option>
-                                                            <option>Gujarat</option>
-                                                            <option>New york</option>
-                                                            <option>California</option>
-                                                        </select>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="col-form-label pt-0">Country <small class="text-danger font-13">*</small></label>
-                                                        <select class="form-control">
-                                                            <option>Select</option>
-                                                            <option>India</option>
-                                                            <option>USA</option>
-                                                            <option>New Zealand</option>                                                            
-                                                        </select>
-                                                    </div>            
-                                                </div>                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3">                            
-                                                    <div class="form-group">
-                                                        <label>Zip code <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">                            
-                                                    <div class="form-group">
-                                                        <label>Email Address <small class="text-danger font-13">*</small></label>
-                                                        <input type="email" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">                            
-                                                    <div class="form-group">
-                                                        <label>Mobile No <small class="text-danger font-13">*</small></label>
-                                                        <input type="text" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group mb-0">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="horizontalCheckbox" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                            <label class="custom-control-label" for="horizontalCheckbox">Confirm Shipping Address</label>
-                                                        </div>
-                                                    </div>              
-                                                </div>
-                                            </div>                                            
-                                        </form>
-                                    </div>                                    
-                                </div>
+                            <div class="col-lg-6">
+                             <!-- metode pembayaran -->
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-2">Billing Details</h4>
