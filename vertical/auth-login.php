@@ -20,77 +20,42 @@ include 'header.php';
                             <div class="media">
                                 <a href="index.php" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
                                 <div class="media-body ml-3 align-self-center">                                                                                                                       
-                                    <h4 class="mt-0 mb-1">Login on Frogetor</h4>
-                                    <p class="text-muted mb-0">Sign in to continue to Frogetor.</p>
+                                    <h4 class="mt-0 mb-1">Makan Terus Internal Mode</h4>
+                                    <p class="text-muted mb-0">Sign in to continue to Makan Terus.</p>
                                 </div>
                             </div>                            
                             
-                            <form class="form-horizontal my-4" action="index.php">
+                            <form class="form-horizontal my-5" method="POST" action="auth-login-process.php">
     
                                 <div class="form-group">
-                                    <label for="username">Username</label>
+                                    <label for="userid">User ID</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-account-outline font-16"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                        <input type="text" class="form-control" id="userID" name="userID" placeholder="Enter ID">
                                     </div>                                    
                                 </div>
     
                                 <div class="form-group">
                                     <label for="userpassword">Password</label>
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-5">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2"><i class="mdi mdi-key font-16"></i></span>
                                         </div>
-                                        <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                                        <input type="password" class="form-control" id="pasword" name="pasword" placeholder="Enter password">
                                     </div>                                
-                                </div>
-    
-                                <div class="form-group row mt-4">
-                                    <div class="col-sm-6">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                            <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 text-right">
-                                        <a href="auth-recoverpw.php" class="text-muted font-13"><i class="mdi mdi-lock"></i> Forgot your password?</a>                                    
-                                    </div>
                                 </div>
     
                                 <div class="form-group mb-0 row">
                                     <div class="col-12 mt-2">
-                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In <i class="fas fa-sign-in-alt ml-1"></i></button>
+                                        <button class="btn btn-primary btn-block waves-effect waves-light" name="login" type="submit">Log In <i class="fas fa-sign-in-alt ml-1"></i></button>
                                     </div>
                                 </div>                            
                             </form>
                         </div>
-                        <div class="account-social text-center">
-                            <h6 class="my-4">Or Login With</h6>
-                            <ul class="list-inline mb-4">
-                                <li class="list-inline-item">
-                                    <a href="" class="">
-                                        <i class="fab fa-facebook-f facebook"></i>
-                                    </a>                                    
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="" class="">
-                                        <i class="fab fa-twitter twitter"></i>
-                                    </a>                                    
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="" class="">
-                                        <i class="fab fa-google google"></i>
-                                    </a>                                    
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="m-3 text-center bg-light p-3 text-primary">
-                            <h5 class="">Don't have an account ? </h5>
-                            <p class="font-13">Join <span>Frogetor</span> Now</p>
-                            <a href="#" class="btn btn-primary btn-round waves-effect waves-light">Free Resister</a>                
-                        </div>                        
+                       
+                                             
                     </div>
                 </div>
             </div>
@@ -98,10 +63,9 @@ include 'header.php';
                 <div class="accountbg d-flex align-items-center"> 
                     <div class="account-title text-white text-center">
                         <img src="assets/images/logo-sm.png" alt="" class="thumb-sm">
-                        <h4 class="mt-3">Welcome To Frogetor</h4>
+                        <h4 class="mt-3">Welcome To Makan Terus</h4>
                         <div class="border w-25 mx-auto border-primary"></div>
-                        <h1 class="">Let's Get Started</h1>
-                        <p class="font-14 mt-3">Don't have an account ? <a href="" class="text-primary">Sign up</a></p>
+                        <h1 class="">INTERNAL MODE</h1>
                        
                     </div>
                 </div>

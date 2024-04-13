@@ -66,6 +66,7 @@
                                 <li><a href="page-invoice.php">Invoice</a></li>
                                 <li><a href="page-treeview.php">Treeview</a></li>
                                 <li><a href="page-profile.php">Profile</a></li>
+                                <li><a href="page-customerlist.php">Customer Data</a></li>
                                 <li><a href="page-starter.php">Starter Page</a></li>
                                 <li><a href="page-pricing.php">Pricing</a></li>
                                 <li><a href="page-blogs.php"><span>Blogs</span></a></li>
