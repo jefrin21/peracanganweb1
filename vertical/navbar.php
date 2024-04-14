@@ -111,7 +111,7 @@ $catchdata = mysqli_fetch_assoc($query);
                                 <a href="javascript: void(0);" class=""><i class="mdi mdi-settings text-light"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="javascript: void(0);" class=""><i class="mdi mdi-power text-danger"></i></a>
+                                <a href="auth-login.php" class=""><i class="mdi mdi-power text-danger"></i></a>
                             </li>
                         </ul>
                     </div>                    
