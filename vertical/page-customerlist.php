@@ -75,7 +75,15 @@ include 'header.php';
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row mx-2 my-4">
-                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customeradd.php'"><i class="fas fa-plus"></i>&nbsp;&nbsp; Tambah Customer</button>
+                                            <div class="app-search ml-5 my-n5 mr-5 col-auto">
+                                                <form method="GET" role="search" class="">
+                                                    <div class="d-flex">
+                                                        <input type="text" name="search" placeholder="Search..." value="<?php if(isset($_GET['search'])){echo $_GET['search'];}?>" class="form-control">
+                                                        <button type="submit" class="btn ml-n5"><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <button class="btn-success px-4 rounded-lg col-auto ml-5 mt-n2 text-right" name="return" onclick="window.location.href='page-customeradd.php'"><i class="fas fa-plus"></i>&nbsp;&nbsp; Tambah Customer</button>
                                         </div>
                                         <table class="table border mb-3" >
                                             <tr style="color:#5d5b6f">
@@ -91,34 +99,92 @@ include 'header.php';
                                             </tr>
 
                                             <?php
-                                            $query = mysqli_query($koneksi, "SELECT * FROM pelanggan");
 
-                                            $no = 1;
-                                            while ($data = mysqli_fetch_array($query)) {
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $data['PelangganID']; ?>      </td>
-                                                    <td><?php echo $data['Nama']; ?>    </td>
-                                                    <td><?php echo $data['Email']; ?>   </td>
-                                                    <td><?php echo $data['Telepon']; ?>   </td>
-                                                    <td><?php echo $data['Alamat']; ?>   </td>
-                                                    <td><?php echo $data['TanggalLahir']; ?>   </td>
-                                                    <td><?php echo $data['Gender']; ?>   </td>
-                                                    <td><?php echo $data['Points']; ?>   </td>
-                                                    <td>
-                                                        <a href="page-customeredit.php?id=<?php echo $data['PelangganID']; ?>">
-                                                            <button class="btn btn-block btn-success my-2"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp; Ubah</button>
-                                                        </a>
+                                                if(isset($_GET['search'])){
+                                                    
+                                               
+                                                    $filter = $_GET['search'];
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM pelanggan WHERE CONCAT(PelangganID, Nama, Email, Telepon) LIKE '%$filter%'");
+
+                                
+                                                    if (mysqli_num_rows($query) > 0) {
+
+                                                        foreach($query as $data){
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?php echo $data['PelangganID']; ?>      </td>
+                                                                    <td><?php echo $data['Nama']; ?>    </td>
+                                                                    <td><?php echo $data['Email']; ?>   </td>
+                                                                    <td><?php echo $data['Telepon']; ?>   </td>
+                                                                    <td><?php echo $data['Alamat']; ?>   </td>
+                                                                    <td><?php echo $data['TanggalLahir']; ?>   </td>
+                                                                    <td><?php echo $data['Gender']; ?>   </td>
+                                                                    <td><?php echo $data['Points']; ?>   </td>
+                                                                    <td>
+                                                                        <a href="page-customeredit.php?id=<?php echo $data['PelangganID']; ?>">
+                                                                            <button class="btn btn-block btn-success my-2"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp; Ubah</button>
+                                                                        </a>
+                                                                        
+                                                                        <a href="process-customerdelete.php?id=<?php echo $data['PelangganID']; ?>">
+                                                                            <button class="btn btn-block btn-success my-2" onclick="return confirm('Apakah Anda yakin akan menghapus data?')"><i class="fas fa-trash"></i>&nbsp;&nbsp; Hapus</button>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php
+                                                        }
+                                            
                                                         
-                                                        <a href="process-customerdelete.php?id=<?php echo $data['PelangganID']; ?>">
-                                                            <button class="btn btn-block btn-success my-2" onclick="return confirm('Apakah Anda yakin akan menghapus data?')"><i class="fas fa-trash"></i>&nbsp;&nbsp; Hapus</button>
-                                                        </a>
-                                                    </td>
-                                            </tr>
-                                            <?php
-                                                $no++;
-                                            }
-                                            ?>
+                                            
+                                                    }
+
+                                                    else {
+                                                        ?>
+                                                        <tr>
+                                                            <td colspan="8">Data tidak ditemukan</td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                } 
+                                                
+                                                else {
+                                                    // If search query is not provided, show all data
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM pelanggan");
+                                                
+                                                    if(mysqli_num_rows($query) > 0) {
+                                                        foreach($query as $data) {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?php echo $data['PelangganID']; ?></td>
+                                                                <td><?php echo $data['Nama']; ?></td>
+                                                                <td><?php echo $data['Email']; ?></td>
+                                                                <td><?php echo $data['Telepon']; ?></td>
+                                                                <td><?php echo $data['Alamat']; ?></td>
+                                                                <td><?php echo $data['TanggalLahir']; ?></td>
+                                                                <td><?php echo $data['Gender']; ?></td>
+                                                                <td><?php echo $data['Points']; ?></td>
+                                                                <td>
+                                                                    <a href="page-customeredit.php?id=<?php echo $data['PelangganID']; ?>">
+                                                                        <button class="btn btn-block btn-success my-2"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp; Ubah</button>
+                                                                    </a>
+                                                                    
+                                                                    <a href="process-customerdelete.php?id=<?php echo $data['PelangganID']; ?>">
+                                                                        <button class="btn btn-block btn-success my-2" onclick="return confirm('Apakah Anda yakin akan menghapus data?')"><i class="fas fa-trash"></i>&nbsp;&nbsp; Hapus</button>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                    } 
+                                                    
+                                                    else {
+                                                        ?>
+                                                        <tr>
+                                                            <td colspan="8">Data tidak ditemukan</td>
+                                                        </tr>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
                                         </table>
                                     </div><!--end card-body-->
                                 </div><!--end card-->
