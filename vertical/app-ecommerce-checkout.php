@@ -58,8 +58,15 @@ include 'header.php';
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mt-0 mb-2">Order Summary</h4>
+                                    <div class="card-body ">
+                                        <div class="text-center d-flex justify-content-between">
+                                            <div>
+                                            <h4 class="header-title mt-0 mb-2 text-center">ORDER SUMMARY</h4>
+                                            </div>
+                                            <div>
+                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customerlist.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                            </div>
+                                        </div>
                                         <div class="table-responsive shopping-cart">
                                             <table class="table mb-0">
                                                 <thead>
@@ -80,7 +87,7 @@ include 'header.php';
 
                                                             echo "<tr>";
                                                             echo "<td>
-                                                                    <img src='assets/images/products/img-5.png' alt='' height='52'>
+                                                                <img src='assets/images/products/".$product['gambar']."' alt='' height='52'>
                                                                     <p class='d-inline-block align-middle mb-0 product-name'>".$product['name']."</p> 
                                                                 </td>";
                                                             echo"<td>

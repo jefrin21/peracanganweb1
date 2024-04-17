@@ -79,7 +79,7 @@ include 'header.php';
                                                             foreach ($_SESSION['shop'] as $id => $product) {
                                                                 echo "<tr>";
                                                                 echo  "<td>
-                                                                         <img src='assets/images/products/kue.jpg' alt='' height='52'>
+                                                                         <img src='assets/images/products/".$product['gambar']."' alt='' height='52'>
                                                                          <p class='d-inline-block align-middle mb-0'>
                                                                              <a href='' class='d-inline-block align-middle mb-0 product-name'>".$product['name']."</a> 
                                                                              <br>
