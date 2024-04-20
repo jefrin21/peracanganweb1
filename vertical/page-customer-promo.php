@@ -55,10 +55,17 @@ include 'header.php';
                                     <div class="card-body border-bottom">
                                         <div class="fro_profile">
                                             <div class="row">
-                                                <div class="col-lg-4 mb-3 mb-lg-0">
+                                                <div class="col-lg-12 mb-3 mb-lg-0">
                                                     <div class="fro_profile-main">
                                                         <div class="fro_profile_user-detail">
-                                                            <h5 class="fro_user-name">Customer Data List</h5>
+                                                            <div class="d-flex justify-content-between align-items-center ">
+                                                                <div >
+                                                                    <h5 class="fro_user-name">Customer Data List</h5>
+                                                                </div>
+                                                                <div class="ml-auto"> 
+                                                                    <button class="btn-success px-4 rounded-lg col-auto ml-5 mt-n2 text-right" name="return" onclick="window.location.href='app-ecommerce-checkout.php'"><i class="dripicons-arrow-thin-left"></i>&nbsp;&nbsp; Kembali</button>
+                                                                </div>
+                                                            </div>
                                                             <p class="mb-0 fro_user-name-post">of Makan Terus</p>
                                                         </div>
                                                     </div>

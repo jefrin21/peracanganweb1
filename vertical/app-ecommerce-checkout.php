@@ -75,7 +75,10 @@ include 'header.php';
                                                    ?>
                                                    <?php if( $_SESSION["custName"] == true){ ?>
                                                        <div>
-                                                            <h5><?php echo $_SESSION["custName"]; ?></h5>
+                                                            <h5 class="text-successs"><?php echo $_SESSION["custName"]; ?></h5>
+                                                        </div>
+                                                        <div>
+                                                            <button class="btn-success px-3 rounded-lg col-auto mx-auto " name="return" onclick="window.location.href='page-customer-promo.php'">Ganti &nbsp; <i class="mdi mdi-autorenew"></i></button>                                        
                                                         </div>
 
                                                     <?php
@@ -89,9 +92,9 @@ include 'header.php';
                                                     } else{ 
                                                     ?>
                                                         <div>
-                                                        <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
                                                         </div>
-                                                        <?php } ?>                                                          
+                                                    <?php } ?>                                                          
                                         </div>
                                         <div class="table-responsive shopping-cart">
                                             <table class="table mb-0">
@@ -154,11 +157,27 @@ include 'header.php';
                                                     ?>
                                                     <tr>
                                                         <td class="payment-title">Promo Code</td>
-                                                        <td>-$10.00</td>
+                                                        <td>
+                                                          
+                                                            <?php
+                                                            if(isset($_GET['id'])){
+                                                             echo $_SESSION["custPoint"];
+                                                             }else
+                                                             echo 0;
+                                                             ?>
+                                                           
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="font-weight-bold">Total</td>
-                                                        <td class="font-weight-bold">$491.00</td>
+                                                        <td class="font-weight-bold">
+                                                             <?php
+                                                             if(isset($_GET['id'])){
+                                                             echo $totalPrice - $_SESSION["custPoint"]; 
+                                                             } else
+                                                             echo $totalPrice;
+                                                             ?>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

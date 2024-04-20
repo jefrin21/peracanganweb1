@@ -106,19 +106,20 @@ include 'header.php';
                                                     <td>
                                                         <select class="form-control form-control-lg py-1" name="Kategori">
                                                        
+                                                        <?php
+                                                        $querykat = mysqli_query($koneksi,"SELECT * FROM KategoriProduk");
+                                                        while($data= mysqli_fetch_array($querykat)){
+                                                        ?>
+                                                        
 
-                                                            <option value="1"> 
-                                                            1
+                                                            <option value="<?php echo $data['KategoriID'];?>"> 
+                                                                <?php echo $data['NamaKategori'];?>
                                                             </option>
 
-                                                            <option value="Kue"> 
-                                                            Kue
-                                                            </option>
-
-                                                            <option value="Cookies"> 
-                                                            Cookies
-                                                            </option>
-
+                                                           
+                                                        <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </td>
                                                     </td>
