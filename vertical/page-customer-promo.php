@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'koneksi.php';
 ?>
 
@@ -160,7 +161,7 @@ include 'header.php';
                                                                 <td><?php echo $data['Gender']; ?></td>
                                                                 <td><?php echo $data['Points']; ?></td>
                                                                 <td>
-                                                                    <a href="page-customeredit.php?id=<?php echo $data['PelangganID']; ?>">
+                                                                    <a href="app-ecommerce-checkout.php?id=<?php echo $data['PelangganID']; ?>">
                                                                         <button class="btn btn-block btn-info my-2"><i class="mdi mdi-check-outline"></i>&nbsp;&nbsp; Pilih</button>
                                                                     </a>
                                                                     

@@ -63,9 +63,35 @@ include 'header.php';
                                             <div>
                                             <h4 class="header-title mt-0 mb-2 text-center">ORDER SUMMARY</h4>
                                             </div>
-                                            <div>
-                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customerlist.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
-                                            </div>
+                                            <?php 
+                                                if(isset($_GET["id"])){
+                                                    $qr="SELECT * FROM pelanggan WHERE PelangganID=".$_GET["id"];
+                                                    $query = mysqli_query($koneksi,$qr);
+                                                    while ($data = mysqli_fetch_array($query)){
+                                                        $_SESSION["custName"]=$data["Nama"];
+                                                        $_SESSION["custEmail"]=$data["Email"];
+                                                        $_SESSION["custPoint"]=$data["Points"];
+                                                     }  
+                                                   ?>
+                                                   <?php if( $_SESSION["custName"] == true){ ?>
+                                                       <div>
+                                                            <h5><?php echo $_SESSION["custName"]; ?></h5>
+                                                        </div>
+
+                                                    <?php
+                                                    }else{
+                                                    ?>
+                                                        <div>
+                                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                                        </div>
+                                                    <?php 
+                                                     }                                             
+                                                    } else{ 
+                                                    ?>
+                                                        <div>
+                                                        <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                                        </div>
+                                                        <?php } ?>                                                          
                                         </div>
                                         <div class="table-responsive shopping-cart">
                                             <table class="table mb-0">
@@ -148,13 +174,10 @@ include 'header.php';
                                         <div class="billing-nav">
                                             <ul class="nav nav-pills justify-content-center text-center mb-3" id="pills-tab" role="tablist">
                                                 <li class="nav-item">
+                                                    <a class="nav-link" id="pills-paypal-tab" data-toggle="pill" href="#pills-paypal" aria-selected="false"><i class="mdi mdi-cash d-block mx-auto text-success font-20"></i>Cash</a>
+                                                </li>
+                                                <li class="nav-item">
                                                     <a class="nav-link active" id="pills-credit-card-tab" data-toggle="pill" href="#pills-credit-card"  aria-selected="true"><i class="mdi mdi-credit-card d-block mx-auto text-danger font-20"></i>Credit-Card</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="pills-paypal-tab" data-toggle="pill" href="#pills-paypal" aria-selected="false"><i class="mdi mdi-paypal d-block mx-auto text-info font-20"></i>Paypal</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="pills-bitcoin-tab" data-toggle="pill" href="#pills-bitcoin" aria-selected="false"><i class="mdi mdi-bitcoin d-block mx-auto text-warning font-20"></i>Bitcoin</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="pills-tabContent">
@@ -210,21 +233,6 @@ include 'header.php';
                                                             </div>
                                                         </div>
                                                     </div>                                                    
-                                                </div>
-                                                <div class="tab-pane fade" id="pills-bitcoin">
-                                                    <div class="row">
-                                                        <div class="col-md-12 col-lg-6 offset-lg-3">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <h4 class="title-text"><i class="mdi mdi-bitcoin d-block mx-auto text-warning font-20"></i>Add Bitcoin Form</h4>
-                                                                    <p class="mb-0 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                                        but the majority have suffered alteration in some form, by injected humour, 
-                                                                        or randomised words.
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>  
                                                 </div>
                                             </div>
                                         </div>                                        
