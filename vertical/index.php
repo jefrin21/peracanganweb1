@@ -57,7 +57,7 @@ session_start();
                                         <div class="row">                                            
                                             <div class="col-8 align-self-center">
                                                 <div class="">
-                                                    <h4 class="mt-0 header-title">Total Sales</h4>
+                                                    <h4 class="mt-0 header-title">Total Profit</h4>
                                                     <h2 class="mt-0 font-weight-bold text-dark">40k</h2> 
                                                     <p class="mb-0 text-muted"><span class="text-success"><i class="mdi mdi-arrow-up"></i>14.5%</span> Up From Last Week</p>
                                                 </div>
@@ -87,7 +87,7 @@ session_start();
                                         <div class="row">                                            
                                             <div class="col-8 align-self-center">
                                                 <div class="">
-                                                    <h4 class="mt-0 header-title">Total Revenue</h4>
+                                                    <h4 class="mt-0 header-title">Total Pembayaran</h4>
                                                     <h2 class="mt-0 font-weight-bold text-dark">$9090</h2> 
                                                     <p class="mb-0 text-muted"><span class="text-success"><i class="mdi mdi-arrow-up"></i>14.5%</span> Up from yesterday</p>
                                                 </div>
@@ -119,7 +119,7 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Average Product Price</h4>
+                                                                <h4 class="mt-0 header-title text-left">Produk terjual</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-jewel bg-soft-pink"></i>
                                                                 </div>
@@ -133,7 +133,7 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">New Orders</h4>
+                                                                <h4 class="mt-0 header-title text-left">Produk Terjual</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-basket bg-soft-info"></i>
                                                                 </div>
@@ -148,7 +148,7 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Order Returns</h4>
+                                                                <h4 class="mt-0 header-title text-left">Produk Dikembalikan</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-swap bg-soft-primary"></i>
                                                                 </div>
@@ -176,7 +176,7 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Total Visits</h4>
+                                                                <h4 class="mt-0 header-title text-left">Total User Masuk</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-user-group bg-soft-success"></i>
                                                                 </div>
