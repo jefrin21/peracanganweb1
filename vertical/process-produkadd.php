@@ -57,7 +57,7 @@ if(isset($_POST['tambah']))
 			
 				//simpan data ke database
 				$query = "INSERT INTO produk (ProdukID, NamaProduk, KategoriID, HargaSatuan, Stok, Deskripsi, GambarProduk)			
-				VALUES('$ambilid', '$ambilnama',1, '$ambilharga','$ambilstok', '$ambildeskripsi','$rand$ambilgambar')";
+				VALUES('$ambilid', '$ambilnama',$ambilkategori, '$ambilharga','$ambilstok', '$ambildeskripsi','$rand$ambilgambar')";
 				
 				$run = mysqli_query($koneksi, $query);
 

@@ -83,7 +83,7 @@ include 'header.php';
         
                                             <tbody>
                                             <?php
-                                             $query = mysqli_query($koneksi,"SELECT * FROM produk");
+                                             $query = mysqli_query($koneksi,"SELECT * FROM produk INNER JOIN kategoriproduk ON Kategoriproduk.KategoriID=produk.KategoriID");
                                              while ($data = mysqli_fetch_array($query)){
                                             ?>
                                             <tr>
@@ -103,7 +103,11 @@ include 'header.php';
                                                     </p>
                                                     
                                                 </td>
-                                                <td>Roti</td>
+                                                <td>
+                                                    <?php
+                                                    echo $data['NamaKategori'];
+                                                    ?>
+                                                </td>
                                                 <td>
                                                     <?php
                                                     echo $data['Stok'];
