@@ -11,8 +11,8 @@
                             <a href="index.php"><i class="mdi mdi-monitor"></i><span>Dashboards</span><span class="badge badge-danger badge-pill float-right">9+</span></a>
                             
                         </li>
-
-                       
+                        <li><a href="app-product-list.php"><i class="mdi mdi-clipboard-text-outline"></i><span>Product List</span></a></li>
+                        
 
                         <li>
                             <a href="javascript: void(0);"><i class="mdi mdi-cart-arrow-right"></i>Sales <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>

@@ -58,8 +58,44 @@ include 'header.php';
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mt-0 mb-2">Order Summary</h4>
+                                    <div class="card-body ">
+                                        <div class="text-center d-flex justify-content-between">
+                                            <div>
+                                            <h4 class="header-title mt-0 mb-2 text-center">ORDER SUMMARY</h4>
+                                            </div>
+                                            <?php 
+                                                if(isset($_GET["id"])){
+                                                    $qr="SELECT * FROM pelanggan WHERE PelangganID=".$_GET["id"];
+                                                    $query = mysqli_query($koneksi,$qr);
+                                                    while ($data = mysqli_fetch_array($query)){
+                                                        $_SESSION["custName"]=$data["Nama"];
+                                                        $_SESSION["custEmail"]=$data["Email"];
+                                                        $_SESSION["custPoint"]=$data["Points"];
+                                                     }  
+                                                   ?>
+                                                   <?php if( $_SESSION["custName"] == true){ ?>
+                                                       <div>
+                                                            <h5 class="text-successs"><?php echo $_SESSION["custName"]; ?></h5>
+                                                        </div>
+                                                        <div>
+                                                            <button class="btn-success px-3 rounded-lg col-auto mx-auto " name="return" onclick="window.location.href='page-customer-promo.php'">Ganti &nbsp; <i class="mdi mdi-autorenew"></i></button>                                        
+                                                        </div>
+
+                                                    <?php
+                                                    }else{
+                                                    ?>
+                                                        <div>
+                                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                                        </div>
+                                                    <?php 
+                                                     }                                             
+                                                    } else{ 
+                                                    ?>
+                                                        <div>
+                                                            <button class="btn-success px-4 rounded-lg col-auto mx-auto" name="return" onclick="window.location.href='page-customer-promo.php'">ADD CUSTOMER &nbsp;&nbsp; <i class="fas fa-plus"></i></button>                                        
+                                                        </div>
+                                                    <?php } ?>                                                          
+                                        </div>
                                         <div class="table-responsive shopping-cart">
                                             <table class="table mb-0">
                                                 <thead>
@@ -70,7 +106,7 @@ include 'header.php';
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                <form action="app-ecommerce-invoice-proses.php" method="POST">
                                                 <?php
                                                 $totalPrice =0;
                                                 ?>
@@ -80,7 +116,7 @@ include 'header.php';
 
                                                             echo "<tr>";
                                                             echo "<td>
-                                                                    <img src='assets/images/products/img-5.png' alt='' height='52'>
+                                                                <img src='assets/images/products/".$product['gambar']."' alt='' height='52'>
                                                                     <p class='d-inline-block align-middle mb-0 product-name'>".$product['name']."</p> 
                                                                 </td>";
                                                             echo"<td>
@@ -120,12 +156,74 @@ include 'header.php';
                                                     echo"</tr>";
                                                     ?>
                                                     <tr>
-                                                        <td class="payment-title">Promo Code</td>
-                                                        <td>-$10.00</td>
+                                                        <td class="payment-title">Customer Point</td>
+                                                        <td>
+                                                          
+                                                            <?php
+                                                            if(isset($_GET['id'])){
+                                                            $custpoint = $_SESSION["custPoint"] *100;
+                                                            echo $custpoint;
+                                                             }else
+                                                             echo 0;
+                                                             ?>
+                                                           
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="font-weight-bold">Get Point</td>
+                                                        <td class="font-weight-bold">
+                                                             <?php
+                                                                if($totalPrice>= 1000000){
+                                                                    $getpoint = 100;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>= 900000){
+                                                                   $getpoint = 90;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=800000){
+                                                                    $getpoint = 80;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=700000){
+                                                                    $getpoint = 70;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=600000){
+                                                                    $getpoint = 60;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=500000){
+                                                                    $getpoint = 50;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=400000){
+                                                                    $getpoint = 40;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=300000){
+                                                                    $getpoint = 30;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=200000){
+                                                                    $getpoint = 20;
+                                                                    echo $getpoint;
+                                                                }else if($totalPrice>=100000){
+                                                                    $getpoint = 10;
+                                                                    echo $getpoint;
+                                                                }else{
+                                                                   $getpoint = 0;
+                                                                    echo $getpoint;
+                                                                }
+
+                                                                ?>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="font-weight-bold">Total</td>
-                                                        <td class="font-weight-bold">$491.00</td>
+                                                        <td class="font-weight-bold">
+                                                             <?php
+                                                             if(isset($_GET['id'])){
+                                                             $totalbuy= $totalPrice - $_SESSION["custPoint"]; 
+                                                             echo $totalbuy;
+                                                             }else{
+                                                             $totalbuy =$totalPrice;
+                                                             echo $totalbuy;
+                                                             }
+                                                             ?>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -139,19 +237,16 @@ include 'header.php';
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-2">Billing Details</h4>
                                         <div class="billing-nav">
-                                            <ul class="nav nav-pills justify-content-center text-center mb-3" id="pills-tab" role="tablist">
+                                            <ul class="nav nav-pills justify-content-center text-center mb-3" id="pills-tab" role="tablist">   
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-paypal-tab" data-toggle="pill" href="#pills-paypal" aria-selected="false"><i class="mdi mdi-cash d-block mx-auto text-success font-20"></i>Cash</a>
+                                                </li>     
                                                 <li class="nav-item">
                                                     <a class="nav-link active" id="pills-credit-card-tab" data-toggle="pill" href="#pills-credit-card"  aria-selected="true"><i class="mdi mdi-credit-card d-block mx-auto text-danger font-20"></i>Credit-Card</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="pills-paypal-tab" data-toggle="pill" href="#pills-paypal" aria-selected="false"><i class="mdi mdi-paypal d-block mx-auto text-info font-20"></i>Paypal</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="pills-bitcoin-tab" data-toggle="pill" href="#pills-bitcoin" aria-selected="false"><i class="mdi mdi-bitcoin d-block mx-auto text-warning font-20"></i>Bitcoin</a>
-                                                </li>
                                             </ul>
                                             <div class="tab-content" id="pills-tabContent">
-                                                <div class="tab-pane fade show active" id="pills-credit-card">
+                                                <div class="tab-pane fade " id="pills-credit-card">
                                                     <div class="demo-container">
                                                         <div class="card-wrapper mb-4"></div>                                                
                                                         <div class="form-container">
@@ -177,47 +272,53 @@ include 'header.php';
                                                                             <input placeholder="MM/YY" class="form-control" type="tel" name="expiry">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">                            
-                                                                        <div class="form-group">
-                                                                            <label>CVV</label>
-                                                                            <input placeholder="CVC" class="form-control" type="number" name="cvc">
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
-                                                                <button class="btn btn-success px-3">Pay Now</button>
+                                                                <button class="btn btn-success px-3" name="creditbut">Pay Now</button>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="pills-paypal">
+                                                <div class="tab-pane fade show active" id="pills-paypal">
                                                     <div class="row">
-                                                        <div class="col-md-12 col-lg-6 offset-lg-3">
+                                                        <div class="col-md-12 col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-body">
-                                                                    <h4 class="title-text"><i class="mdi mdi-paypal d-block mx-auto text-info font-20"></i>Add Paypal Form</h4>
-                                                                    <p class="mb-0 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                                        but the majority have suffered alteration in some form, by injected humour, 
-                                                                        or randomised words.
-                                                                    </p>
+                                                                    <div class="container">      
+                                                                        <?php
+                                                                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                                            $subtotal = $_POST["subtotal"];
+                                                                            $cash = $_POST["cash"];
+                                                                            $change = $cash - $subtotal;
+                                                                            }
+                                                                            ?>                                                                                                                                          
+                                                                        <form  method="post">                                 
+                                                                            <div class="form-group col-lg-7">
+                                                                                <label for="subtotal">Total:</label>
+                                                                                <input type="number" class="form-control" id="total" name="subtotal" value="<?php echo $totalbuy;?>" readonly>
+                                                                                
+                                                                            </div>
+                                                                            
+                                                                            <div class="form-group col-lg-7">
+                                                                                <label for="cash">Jumlah Uang Cash:</label>
+                                                                             
+                                                                                <input type="number" class="form-control" id="cash" name="cash" value="<?php echo$cash;?>"  required>
+                                                                                                   
+                                                                                <button type="submit" class="btn btn-primary " name="cashbut">Hitung kembalian</button>                                                          
+                                                                            </div> 
+                                                                                                                                                       
+                                                                            <div class="form-group col-lg-7">
+                                                                                <label for="change">Kembalian:</label>
+                                                                                <input type="number" class="form-control" id="change" value="<?php echo $change?>" readonly>
+                                                                            </div>
+                                                                        </form>
+                                                                             <a href="app-ecommerce-invoice.php"><button type="submit" class="btn btn-primary offset-lg-10" >Continue</button></a>
+                                                                       
+                                                                    </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>                                                    
-                                                </div>
-                                                <div class="tab-pane fade" id="pills-bitcoin">
-                                                    <div class="row">
-                                                        <div class="col-md-12 col-lg-6 offset-lg-3">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <h4 class="title-text"><i class="mdi mdi-bitcoin d-block mx-auto text-warning font-20"></i>Add Bitcoin Form</h4>
-                                                                    <p class="mb-0 text-muted">There are many variations of passages of Lorem Ipsum available, 
-                                                                        but the majority have suffered alteration in some form, by injected humour, 
-                                                                        or randomised words.
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>  
                                                 </div>
                                             </div>
                                         </div>                                        

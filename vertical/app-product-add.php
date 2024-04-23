@@ -21,7 +21,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Customer Data</h4>  
+                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Profile</h4>  
                             <div class="">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Frogetor</a></li>
@@ -58,7 +58,7 @@ include 'header.php';
                                                 <div class="col-lg-4 mb-3 mb-lg-0">
                                                     <div class="fro_profile-main">
                                                         <div class="fro_profile_user-detail">
-                                                            <h5 class="fro_user-name">Customer Data List</h5>
+                                                            <h5 class="fro_user-name">Product List</h5>
                                                             <p class="mb-0 fro_user-name-post">of Makan Terus</p>
                                                         </div>
                                                     </div>
@@ -77,98 +77,89 @@ include 'header.php';
                                     <div class="card-body">
 
                                         <div class="row mx-2 my-4">
-                                            <h4 class="mt-0 header-title">Edit Customer Data</h4>   
-                                            <button class="btn-success px-4 rounded-lg col-auto ml-auto" name="return" onclick="window.location.href='page-customerlist.php'"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Kembali</button>
+                                            <h4 class="mt-0 header-title">Add Product Data</h4>   
+                                            <button class="btn-success px-4 rounded-lg col-auto ml-auto" name="return" onclick="window.location.href='app-product-list.php'"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Kembali</button>
                                         </div>
 
-                                        <?php 
-                                            $ambilid 	= $_GET['id'];
-                                            $query 		= mysqli_query($koneksi, "SELECT * FROM pelanggan WHERE PelangganID = '$ambilid'");
-                                            $data 		= mysqli_fetch_array($query);
-                                        ?>
-                                        <form  action="process-customeredit.php" method="post">
+                                        <form  action="process-produkadd.php" method="post" enctype="multipart/form-data">
                                             <table class="table border">
+                                              
                                                 <tr>
-                                                    <td>ID Pelanggan</td>
+                                                    <td>ID Product</td>
                                                     <td>:</td>
                                                     <td>
-                                                        <input class="form-control form-control-lg" type="text" name="Pelangganid" required 
-                                                        value="<?php echo $data['PelangganID'];?>" readonly>
+                                                        <input class="form-control form-control-lg" type="text" name="ProductID" required >
                                                     </td> 				
                                                 </tr>
                                                 
                                                 <tr>
-                                                    <td>Nama</td>
+                                                    <td>Nama Produk</td>
                                                     <td>:</td>
                                                     <td>
-                                                        <input class="form-control form-control-lg" type="text" name="Nama" required 
-                                                        value="<?php echo $data['Nama'];?>" >
+                                                        <input class="form-control form-control-lg" type="text" name="Nama" required >
                                                     </td> 				
                                                 </tr>	
                                                 
                                                 <tr>
-                                                    <td>Email</td>
-                                                    <td>:</td>
-                                                    <td><input class="form-control form-control-lg" type="text" name="Email"  required 
-                                                        value="<?php echo $data['Email'];?>">
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>No. Telepon</td>
-                                                    <td>:</td>
-                                                    <td><input class="form-control form-control-lg" type="text" name="Telepon"  required 
-                                                        value="<?php echo $data['Telepon'];?>">
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Alamat</td>
-                                                    <td>:</td>
-                                                    <td><input class="form-control form-control-lg" type="text" name="Alamat"  required 
-                                                        value="<?php echo $data['Alamat'];?>">
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Tanggal Lahir</td>
-                                                    <td>:</td>
-                                                    <td><input class="form-control form-control-lg" type="date" name="TanggalLahir"  required 
-                                                        value="<?php echo $data['TanggalLahir'];?>">
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Gender</td>
+                                                    <td>Kategori</td>
                                                     <td>:</td>
                                                     <td>
-                                                        <select class="form-control form-control-lg py-1" name="Gender">
+                                                        <select class="form-control form-control-lg py-1" name="Kategori">
+                                                       
+                                                        <?php
+                                                        $querykat = mysqli_query($koneksi,"SELECT * FROM KategoriProduk");
+                                                        while($data= mysqli_fetch_array($querykat)){
+                                                        ?>
+                                                        
 
-                                                            <option value="0" <?php if($data['Gender'] == 0) { echo "selected"; } ?> > 
-                                                            Laki-Laki
+                                                            <option value="<?php echo $data['KategoriID'];?>"> 
+                                                                <?php echo $data['NamaKategori'];?>
                                                             </option>
 
-                                                            <option value="1" <?php if($data['Gender'] == 1) { echo "selected";} ?> > 
-                                                            Perempuan
-                                                            </option>
-
+                                                           
+                                                        <?php
+                                                        }
+                                                        ?>
                                                         </select>
                                                     </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Point</td>
-                                                    <td>:</td>
-                                                    <td><input class="form-control form-control-lg" type="text" name="Points"  required 
-                                                        value="<?php echo $data['Points'];?>">
                                                     </td>
                                                 </tr>
 
                                                 <tr>
+                                                    <td>Harga</td>
+                                                    <td>:</td>
+                                                    <td><input class="form-control form-control-lg" type="text" name="Harga"  required >
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Stock</td>
+                                                    <td>:</td>
+                                                    <td><input class="form-control form-control-lg" type="text" name="Stok"  required >
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Deskripsi</td>
+                                                    <td>:</td>
+                                                    <td><input class="form-control form-control-lg" type="text" name="Deskripsi"  required >
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Gambar</td>
+                                                    <td>:</td>
+                                                    <td><input class="form-control form-control-lg" type="file" name="Gambar"  required >
+                                                   
+                                                </tr>
+
+
+                                                
+                                                <tr>
                                                     <td></td>
                                                     <td></td>
                                                     <td>
-                                                        <input class="btn-success px-4 py-2 rounded-lg" type="submit" name="ubah" value="UBAH DATA" >
+                                                        <input class="btn-success px-4 py-2 rounded-lg" type="submit" name="tambah" value="TAMBAH PRODUK" >
                                                     </td>
                                                 </tr>
 

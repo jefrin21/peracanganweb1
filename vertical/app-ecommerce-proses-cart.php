@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['shop'][$id] = array(
                     'jumlah' => 1,
                     'name' => $row['NamaProduk'],
-                    'price' => $row['HargaSatuan']
+                    'price' => $row['HargaSatuan'],
+                    'gambar' => $row['GambarProduk']
                 );
             }
             header("location: app-ecommerce-product.php");

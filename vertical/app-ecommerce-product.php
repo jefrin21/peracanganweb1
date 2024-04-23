@@ -58,8 +58,9 @@ include 'header.php';
                                 ?>
                                 <div class="col-lg-3">
                                     <div class="card e-co-product">
+                                        
                                         <a href="">  
-                                            <img src="assets/images/products/kue.jpg" alt="" class="img-fluid">
+                                            <img src="assets/images/products/<?php echo $data['GambarProduk'];?>" alt="" class="img-fluid">
                                         </a>                                    
                                         <div class="card-body text-center product-info">
                                             <a href="" class="product-title">
