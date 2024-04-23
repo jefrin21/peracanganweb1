@@ -20,7 +20,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Profile</h4>  
+                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Customer Data</h4>  
                             <div class="">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Frogetor</a></li>
@@ -76,7 +76,7 @@ include 'header.php';
                                     <div class="card-body">
 
                                         <div class="row mx-2 my-4">
-                                            <h4 class="mt-0 header-title">Edit Customer Data</h4>   
+                                            <h4 class="mt-0 header-title">Add Customer Data</h4>   
                                             <button class="btn-success px-4 rounded-lg col-auto ml-auto" name="return" onclick="window.location.href='page-customerlist.php'"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Kembali</button>
                                         </div>
 
@@ -132,11 +132,11 @@ include 'header.php';
                                                     <td>
                                                         <select class="form-control form-control-lg py-1" name="Gender">
 
-                                                            <option value="Laki-Laki"> 
+                                                            <option value="0"> 
                                                             Laki-Laki
                                                             </option>
 
-                                                            <option value="Perempuan"> 
+                                                            <option value="1"> 
                                                             Perempuan
                                                             </option>
 

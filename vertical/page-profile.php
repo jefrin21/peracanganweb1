@@ -58,7 +58,19 @@ include 'header.php';
                                             <div class="row">
                                                 <div class="col-lg-11 d-flex">
                                                     <div class="mr-5 align-items-center">
-                                                        <div class="rounded-circle border border-dark bg-secondary" style="width: 130px; height: 130px;"></div>
+                                                        <div class="rounded-circle border border-dark bg-secondary" style="width: 130px; height: 130px;">
+                                                        <?php 
+                                                            $jk = $catchdata['Gender'];
+                                                                if($jk==0){?>
+                                                                    <img src="assets/images/userMan.png" alt="user" class="rounded-circle img-thumbnail mb-1">
+                                                                    <?php 
+                                                                }
+                                                            
+                                                                else {?>
+                                                                    <img src="assets/images/userWoman.png" alt="user" class="rounded-circle img-thumbnail mb-1">
+                                                                    <?php 
+                                                                } ?>
+                                                        </div>
                                                     </div>
                                                     <div class="align-items-center d-flex">
                                                         <div class="fro_profile-main">

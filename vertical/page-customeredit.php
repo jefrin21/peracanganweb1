@@ -20,7 +20,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Profile</h4>  
+                            <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Customer Data</h4>  
                             <div class="">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Frogetor</a></li>
@@ -143,11 +143,11 @@ include 'header.php';
                                                     <td>
                                                         <select class="form-control form-control-lg py-1" name="Gender">
 
-                                                            <option value="Laki-Laki" <?php if($data['Gender'] == "Laki-Laki") { echo "selected"; } ?> > 
+                                                            <option value="0" <?php if($data['Gender'] == 0) { echo "selected"; } ?> > 
                                                             Laki-Laki
                                                             </option>
 
-                                                            <option value="Perempuan" <?php if($data['Gender'] == "Perempuan") { echo "selected";} ?> > 
+                                                            <option value="1" <?php if($data['Gender'] == 1) { echo "selected";} ?> > 
                                                             Perempuan
                                                             </option>
 

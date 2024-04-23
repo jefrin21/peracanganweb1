@@ -53,6 +53,7 @@ include 'header.php';
                 <div class="page-content">
                     <div class="container-fluid"> 
                         <div class="row">
+                            
                             <div class="col-lg-3">
                                 <div class="card profile-card">
                                     <div class="card-body bg-primary p-0">
@@ -98,6 +99,8 @@ include 'header.php';
                                     </div><!--end card-body-->                                         
                                 </div><!--end card--> 
                             </div><!--end col-->
+
+
                             <div class="col-lg-3">
                                 <div class="card profile-card">
                                     <div class="card-body bg-pink p-0">

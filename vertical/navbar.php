@@ -15,10 +15,10 @@ $catchdata = mysqli_fetch_assoc($query);
                 <div class="topbar-left">
                     <a href="index.php" class="logo">
                         <span>
-                            <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                            <img src="assets/images/makanterus_logogram.png" alt="logo-small" class="logo" style="width: 20%; height: auto;">
                         </span>
                         <span>
-                            <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg">
+                            <img src="assets/images/makanterus_logotype.png" alt="logo-large" class="logo ml-3" style="width: 50%; height: auto;">
                         </span>
                     </a>
                 </div>
@@ -94,8 +94,21 @@ $catchdata = mysqli_fetch_assoc($query);
         <!-- Top Bar End -->
         <div class="page-wrapper-img">
             <div class="page-wrapper-img-inner">
-                <div class="sidebar-user media">                    
-                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle img-thumbnail mb-1">
+                <div class="sidebar-user media">    
+                <?php 
+                            $jk = $catchdata['Gender'];
+                                if($jk==0){?>
+                                    <img src="assets/images/userMan.png" alt="user" class="rounded-circle img-thumbnail mb-1">
+                                    <?php 
+                                }
+                              
+                                else {?>
+                                    <img src="assets/images/userWoman.png" alt="user" class="rounded-circle img-thumbnail mb-1">
+                                    <?php 
+                                } ?>
+
+                               
+                   
                     <span class="online-icon"><i class="mdi mdi-record text-success"></i></span>
                     <div class="media-body">
                         <h5 class="text-light">

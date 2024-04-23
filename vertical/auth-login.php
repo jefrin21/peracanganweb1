@@ -18,10 +18,10 @@ include 'header.php';
                         
                         <div class="px-3">
                             <div class="media">
-                                <a href="index.php" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="my-3"></a>
+                                <a href="index.php" class="logo logo-admin"><img src="assets/images/makanterus_logogram.png" height="55" alt="logo" class="my-3"></a>
                                 <div class="media-body ml-3 align-self-center">                                                                                                                       
-                                    <h4 class="mt-0 mb-1">Makan Terus Internal Mode</h4>
-                                    <p class="text-muted mb-0">Sign in to continue to Makan Terus.</p>
+                                    <h4 class="mt-3 ml-1 mb-1">Makan Terus Internal Mode</h4>
+                                    <p class="text-muted ml-1 mb-0">Sign in to continue to Makan Terus.</p>
                                 </div>
                             </div>                            
                             
@@ -49,7 +49,7 @@ include 'header.php';
     
                                 <div class="form-group mb-0 row">
                                     <div class="col-12 mt-2">
-                                        <button class="btn btn-primary btn-block waves-effect waves-light" name="login" type="submit">Log In <i class="fas fa-sign-in-alt ml-1"></i></button>
+                                        <button class="btn btn-block waves-effect waves-light text-white" style="background-color:#363e47" name="login" type="submit">Log In <i class="fas fa-sign-in-alt ml-1"></i></button>
                                     </div>
                                 </div>                            
                             </form>
@@ -62,9 +62,10 @@ include 'header.php';
             <div class="col-lg-9 p-0 d-flex justify-content-center">
                 <div class="accountbg d-flex align-items-center"> 
                     <div class="account-title text-white text-center">
-                        <img src="assets/images/logo-sm.png" alt="" class="thumb-sm">
-                        <h4 class="mt-3">Welcome To Makan Terus</h4>
-                        <div class="border w-25 mx-auto border-primary"></div>
+                        <img src="assets/images/makanterus_logogramWhite.png" alt="" class="logo-sm mb-3" style="width: 20%; height: auto;">
+                        <br>
+                        <img src="assets/images/makanterus_logotypeWhite.png" alt="" class="logo-lg" style="width: 50%; height: auto;">
+                        <div class="border w-55 mt-5 mx-auto border-white"></div>
                         <h1 class="">INTERNAL MODE</h1>
                        
                     </div>
