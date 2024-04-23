@@ -15,10 +15,10 @@ $catchdata = mysqli_fetch_assoc($query);
                 <div class="topbar-left">
                     <a href="index.php" class="logo">
                         <span>
-                            <img src="assets/images/makanterus_logogram.png" alt="logo-small" class="logo" style="width: 20%; height: auto;">
+                            <img src="assets/images/makanterus_logogram.png" alt="logogram" class="logo" style="width: 20%; height: auto;">
                         </span>
                         <span>
-                            <img src="assets/images/makanterus_logotype.png" alt="logo-large" class="logo ml-3" style="width: 50%; height: auto;">
+                            <img src="assets/images/makanterus_logotype.png" alt="logotype" class="logo ml-3" style="width: 50%; height: auto;">
                         </span>
                     </a>
                 </div>

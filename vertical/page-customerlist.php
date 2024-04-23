@@ -19,7 +19,7 @@ include 'header.php';
 
                 <!-- Page-Title -->
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-n5">
                         <div class="page-title-box">
                             <h4 class="page-title mb-2"><i class="mdi mdi-account mr-2"></i>Customer Data</h4>  
                             <div class="">
@@ -36,7 +36,7 @@ include 'header.php';
             </div><!--end page-wrapper-img-inner-->
         </div><!--end page-wrapper-img-->
         
-        <div class="page-wrapper">
+        <div class="page-wrapper mt-n5">
             <div class="page-wrapper-inner">
 
                 <!-- Left Sidenav -->
