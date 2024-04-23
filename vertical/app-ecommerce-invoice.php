@@ -88,8 +88,24 @@ include 'koneksi.php';
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="">
-                                                    <h6 class="mb-0"><b>Order Date :</b> 11/09/2018</h6>
-                                                    <h6><b>Order ID :</b> # 23654789</h6>
+                                                    <h6 class="mb-0"  ><b>Order Date :</b>                                                
+                                                        <b id="currentdate">
+                                                            <script>const curdate = new Date().toLocaleDateString()
+                                                            document.getElementById("currentdate").innerHTML = curdate
+                                                            </script>
+                                                        </b>
+                                                    </h6>
+                                                    <h6><b>Order ID :</b> 
+                                                    <h6>
+                                                    <?php
+                                                    if(isset($_GET["transaksi"])){
+                                                        
+                                                    }
+
+
+                                                     ?>
+                                                    </h6>
+                                                </h6>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">                                            

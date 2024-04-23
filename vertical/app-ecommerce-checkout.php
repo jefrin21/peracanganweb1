@@ -156,7 +156,7 @@ include 'header.php';
                                                     echo"</tr>";
                                                     ?>
                                                     <tr>
-                                                        <td class="payment-title">Customer Point</td>
+                                                        <td class="payment-title">Customer Point Total</td>
                                                         <td>
                                                           
                                                             <?php
