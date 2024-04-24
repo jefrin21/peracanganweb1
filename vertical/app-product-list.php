@@ -74,8 +74,7 @@ include 'header.php';
                                                 <th>Category</th>
                                                 <th>Pieces</th>
                                                 <th>Price</th>
-                                                <th>Deskripsi</th>
-                        
+                                                <th class="height=50%;">Deskripsi</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>

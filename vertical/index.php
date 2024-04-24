@@ -272,117 +272,95 @@ session_start();
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body new-user order-list">
-                                        <h4 class="header-title mt-0 mb-3">Order List</h4>
+                                        <h4 class="header-title mt-0 mb-3">History Transaksi</h4>
                                         <div class="table-responsive">
                                             <table class="table table-hover mb-0">
                                                 <thead class="thead-light">
                                                     <tr>
-                                                        <th class="border-top-0">Product</th>
-                                                        <th class="border-top-0">Pro Name</th>
-                                                        <th class="border-top-0">Country</th>
-                                                        <th class="border-top-0">Order Date/Time</th>
-                                                        <th class="border-top-0">Pcs.</th>                                    
-                                                        <th class="border-top-0">Amount ($)</th>
-                                                        <th class="border-top-0">Status</th>
-                                                    </tr><!--end tr-->
+                                                        <th class="border-top-0">TransaksiID</th>
+                                                        <th class="border-top-0">Tanggal Transaksi</th>
+                                                        <th class="border-top-0">Waktu Transaksi</th>
+                                                        <th class="border-top-0">KaryawanID</th>
+                                                        <th class="border-top-0">PelangganID.</th>                                    
+                                                        <th class="border-top-0">SubtotalHarga</th>
+                                                        <th class="border-top-0">DiskonID</th>
+                                                        <th class="border-top-0">TotalHarga</th>
+                                                        <th class="border-top-0">GetPoint</th>
+                                                        <th class="border-top-0">RedeemPoint</th>
+                                                        <th class="border-top-0">PembayaranID</th>
+
+
+
+
+                                                        </tr><!--end tr-->
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-1.png" alt="user"> </td>
-                                                        <td>
-                                                            Beg
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/us_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>3/03/2019 4:29 PM</td>
-                                                        <td>200</td>                                   
-                                                        <td> $750</td>
-                                                        <td>                                                                        
-                                                            <span class="badge badge-boxed  badge-soft-success">Shipped</span>
-                                                        </td>
-                                                    </tr><!--end tr-->
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-2.png" alt="user"> </td>
-                                                        <td>
-                                                            Watch
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/french_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>13/03/2019 1:09 PM</td>
-                                                        <td>180</td>                                   
-                                                        <td> $970</td>
-                                                        <td>
-                                                            <span class="badge badge-boxed  badge-soft-danger">Delivered</span>
-                                                        </td>
-                                                    </tr><!--end tr-->
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-3.png" alt="user"> </td>
-                                                        <td>
-                                                            Headphone
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/spain_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>22/03/2019 12:09 PM</td>
-                                                        <td>30</td>                                   
-                                                        <td> $2800</td>
-                                                        <td>
-                                                            <span class="badge badge-boxed badge-soft-warning">Pending</span>
-                                                        </td>
-                                                    </tr><!--end tr-->
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-4.png" alt="user"> </td>
-                                                        <td>
-                                                            Purse
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/russia_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>14/03/2019 8:27 PM</td>
-                                                        <td>100</td>                                   
-                                                        <td> $520</td>
-                                                        <td>                                                                                                                                              
-                                                            <span class="badge badge-boxed  badge-soft-success">Shipped</span>                                                                    
-                                                        </td>
-                                                    </tr><!--end tr-->
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-5.png" alt="user"> </td>
-                                                        <td>
-                                                            Shoe
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/italy_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>18/03/2019 5:09 PM</td>
-                                                        <td>100</td>                                   
-                                                        <td> $1150</td>
-                                                        <td>
-                                                            <span class="badge badge-boxed badge-soft-warning">Pending</span>
-                                                        </td>
-                                                    </tr><!--end tr-->
-                                                    <tr>
-                                                        <td>
-                                                            <img class="" src="assets/images/products/img-6.png" alt="user"> </td>
-                                                        <td>
-                                                            Boll
-                                                        </td>
-                                                        <td>                                                                
-                                                            <img src="assets/images/flags/us_flag.jpg" alt="" class="img-flag thumb-xxs rounded-circle">
-                                                        </td>
-                                                        <td>30/03/2019 4:29 PM</td>
-                                                        <td>140</td>                                   
-                                                        <td> $ 650</td>
-                                                        <td>                                                                        
-                                                            <span class="badge badge-boxed  badge-soft-success">Shipped</span>
-                                                        </td>
-                                                    </tr><!--end tr-->                                                    
+                                                    <?php
+                                                    $query = mysqli_query($koneksi, "SELECT * FROM transaksi ");
+                                                    while($data = mysqli_fetch_array($query)){
+                                                        ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["TransaksiID"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["TanggalTransaksi"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["WaktuTransaksi"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["KaryawanID"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["PelangganID"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["SubtotalHarga"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["DiskonID"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["TotalHarga"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["GetPoint"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["RedeemPoint"];
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php
+                                                                echo $data["PembayaranID"];
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                } 
+                                                ?>
+                                                    
+                                                                                                 
                                                 </tbody>
                                             </table> <!--end table-->                                               
                                         </div><!--end /div-->

@@ -65,7 +65,7 @@ include 'header.php';
                                             </div>
                                             <?php 
                                                 if(isset($_GET["id"])){
-                                                    $qr="SELECT * FROM pelanggan WHERE PelangganID=".$_GET["id"];
+                                                    $qr="SELECT * FROM pelanggan WHERE PelangganID='".$_GET['id'] . "'";
                                                     $query = mysqli_query($koneksi,$qr);
                                                     while ($data = mysqli_fetch_array($query)){
                                                         $_SESSION["custName"]=$data["Nama"];
@@ -162,8 +162,8 @@ include 'header.php';
                                                             <?php
                                                             if(isset($_GET['id'])){
                                                             $custpoint = $_SESSION["custPoint"] *100;
-                                                            echo $custpoint;
-                                                             }else
+                                                            echo $totalPrice;
+}else
                                                              echo 0;
                                                              ?>
                                                            
@@ -206,7 +206,10 @@ include 'header.php';
                                                                 }else{
                                                                    $getpoint = 0;
                                                                     echo $getpoint;
+                                                                                                                        
                                                                 }
+                                                                $sisa_point = $custpoint - $totalPrice + $getpoint;
+                                                            
 
                                                                 ?>
                                                         </td>
@@ -215,11 +218,14 @@ include 'header.php';
                                                         <td class="font-weight-bold">Total</td>
                                                         <td class="font-weight-bold">
                                                              <?php
-                                                             if(isset($_GET['id'])){
                                                              $totalbuy= $totalPrice - $_SESSION["custPoint"]; 
-                                                             echo $totalbuy;
+
+                                                             if( $_SESSION["custPoint"] > $totalPrice) {
+                                                                echo "0";
+
+                                                             
                                                              }else{
-                                                             $totalbuy =$totalPrice;
+                                                             $totalbuy =$totalPrice - $_SESSION["custPoint"]; 
                                                              echo $totalbuy;
                                                              }
                                                              ?>
@@ -292,7 +298,7 @@ include 'header.php';
                                                                             }
                                                                             ?>                                                                                                                                          
                                                                         <form  method="post">                                 
-                                                                            <div class="form-group col-lg-7">
+                                                                            <div class="form-group col-lg-7">   
                                                                                 <label for="subtotal">Total:</label>
                                                                                 <input type="number" class="form-control" id="total" name="subtotal" value="<?php echo $totalbuy;?>" readonly>
                                                                                 
