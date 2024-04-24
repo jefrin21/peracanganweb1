@@ -87,8 +87,12 @@ session_start();
                                         <div class="row">                                            
                                             <div class="col-8 align-self-center">
                                                 <div class="">
-                                                    <h4 class="mt-0 header-title">Total Pembayaran</h4>
-                                                    <h2 class="mt-0 font-weight-bold text-dark">$9090</h2> 
+                                                    <h4 class="mt-0 header-title">Total Transaksi</h4>
+                                                    <h2 class="mt-0 font-weight-bold text-dark">
+                                                        <?php
+                                                        $query = mysqli_query($koneksi, "SELECT * FROM  transaksi ");
+                                                        echo mysqli_num_rows($query);
+                                                        ?></h2> 
                                                     <p class="mb-0 text-muted"><span class="text-success"><i class="mdi mdi-arrow-up"></i>14.5%</span> Up from yesterday</p>
                                                 </div>
                                             </div><!--end col-->
@@ -119,11 +123,17 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Produk terjual</h4>
+                                                                <h4 class="mt-0 header-title text-left">Total Karyawan</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-jewel bg-soft-pink"></i>
                                                                 </div>
-                                                                <h2 class="mt-0 font-weight-bold text-dark">$1280.00</h2> 
+                                                                <h2 class="mt-0 font-weight-bold text-dark">
+                                                                    <?php 
+                                                                   
+                                                                    $query = mysqli_query($koneksi,"SELECT * FROM karyawan");                                                        
+                                                                    echo mysqli_num_rows($query);
+                                                               
+                                                                    ?></h2> 
                                                                 <p class="mb-1 text-muted"><span class="text-success"><i class="mdi mdi-arrow-up"></i>35.5%</span> Last 100 Subscriptions</p>
                                                             </div>
                                                         </div><!--end col-->                                                        
@@ -162,11 +172,15 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Total Brands</h4>
+                                                                <h4 class="mt-0 header-title text-left">Total Produk</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-store bg-soft-warning"></i>
                                                                 </div>
-                                                                <h2 class="mt-0 font-weight-bold text-dark">92</h2> 
+                                                                <h2 class="mt-0 font-weight-bold text-dark">
+                                                                    <?php
+                                                                        $query = mysqli_query($koneksi, "SELECT * FROM produk");
+                                                                        echo mysqli_num_rows($query)
+                                                                    ?></h2> 
                                                                 <p class="mb-1 text-muted">All International Brands</p>
                                                             </div>
                                                         </div><!--end col-->                                                        
@@ -176,11 +190,20 @@ session_start();
                                                     <div class="row">                                            
                                                         <div class="col-12 align-self-center">
                                                             <div class="text-center">
-                                                                <h4 class="mt-0 header-title text-left">Total User Masuk</h4>
+                                                                <h4 class="mt-0 header-title text-left">Total User</h4>
                                                                 <div class="icon-info my-3">
                                                                     <i class="dripicons-user-group bg-soft-success"></i>
                                                                 </div>
-                                                                <h2 class="mt-0 font-weight-bold text-dark">35k</h2> 
+                                                                <h2 class="mt-0 font-weight-bold text-dark">
+                                                                    <?php 
+                                                                   
+                                                                        $query = mysqli_query($koneksi,"SELECT COUNT(pelangganID) AS TOTAL FROM pelanggan;");
+                                
+                                                                        $data = mysqli_fetch_array($query);
+
+                                                                       echo $data["TOTAL"];
+                                                            
+                                                                    ?> </h2> 
                                                                 <p class="mb-1 text-muted"><span class="text-success"><i class="mdi mdi-arrow-up"></i>11.1%</span> Up from yesterday</p>
                                                             </div>
                                                         </div><!--end col-->                                                        
